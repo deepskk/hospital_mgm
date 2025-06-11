@@ -11,6 +11,13 @@
             <form method="POST" action="/login">
                 <input type="text" name="username" placeholder="Username" required /><br><br>
                 <input type="password" name="password" placeholder="Password" required /><br><br>
+                  <select name="role" required style="padding: 10px; width: 270px;">
+                    <option value="">Select Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="receptionist">Receptionist</option>
+                </select>
+                <br><br>
                 <button type="submit">Sign in</button>
             </form>
         </div>
