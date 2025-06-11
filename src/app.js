@@ -1,22 +1,17 @@
 const express = require("express");
-const bodyparser = require("body-parser");
+const path = require("path");
+const route = require("./routes/regroutes");
+const db = require("./config/db");
 
 const app = express();
-const db = require("./config/db"); // Import database connection
 
-app.use(express.json());
+app.set("view engine", "ejs");
+// app.set("views", path.join(__dirname, "view"));
 
-// Sample route to test DB
-app.get("/patients", (req, res) => {
-    const query = "SELECT * FROM patients"; // change table name as per your schema
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+app.use(express.static("public"));
 
-    db.query(query, (err, results) => {
-        if (err) {
-            console.error("Error executing query:", err);
-            return res.status(500).send("Database error");
-        }
-        res.json(results);
-    });
-});
+app.use("/", route);
 
 module.exports = app;
