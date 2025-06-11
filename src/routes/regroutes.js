@@ -3,6 +3,7 @@ const regCtrl = require("../controllers/regCtrl");
 
 const router = express.Router();
 
-router.get("/", regCtrl.regCtrlLogin);
+router.get("/", regCtrl.regHomePage); // Home page
+router.get("/login", regCtrl.regCtrlLogin); // Login page
 
 module.exports = router;
