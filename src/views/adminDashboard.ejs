@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/adminDashboard.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+  <!-- Toggle Button (visible on mobile) -->
+  <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+      <li><a href="#">🏠 Dashboard</a></li>
+      <li><a href="#">👤 Admin</a></li>
+      <li><a href="#">🩺 Doctor</a></li>
+      <li><a href="#">👩‍💼 Receptionist</a></li>
+      <li class="logout"><a href="#">🚪 Logout</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Container -->
+  <div class="main-container">
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+      <a href="#">Add Admin</a>
+      <a href="#">Add Doctor</a>
+      <a href="#">Add Receptionist</a>
+      <a href="#" class="logout-btn">Logout</a>
+    </nav>
+
+    <!-- Welcome Section -->
+    <section class="dashboard">
+      <h1>Welcome, Admin!</h1>
+      <p>Manage your hospital team efficiently with the options below.</p>
+      <div class="action-buttons">
+        <button class="btn blue">Add Admin</button>
+        <button class="btn green">Add Doctor</button>
+        <button class="btn yellow">Add Receptionist</button>
+        <button class="btn red">Logout</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div>
+        <h4>Contact Us</h4>
+        <p>Healing Lane, GreenCity</p>
+        <p>📞 +91 98765 43210</p>
+        <p>📧 info@hms.com</p>
+      </div>
+      <div>
+        <h4>Emergency Numbers</h4>
+        <p>🚑 Ambulance: 102</p>
+        <p>🔥 Fire: 101</p>
+        <p>👮 Police: 100</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="#">Privacy Policy</a></p>
+        <p><a href="#">Terms of Service</a></p>
+        <p><a href="#">Patient Support</a></p>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
