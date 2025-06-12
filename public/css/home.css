@@ -1,4 +1,9 @@
-body, html {
+*{
+   margin: 0px;
+   padding: 0px;
+   box-sizing: border-box;
+}
+body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', sans-serif;
@@ -45,7 +50,11 @@ header {
 }
 
 .hero {
-    background: url('/images/hospital.jpg') no-repeat center center/cover;
+    background-image: url('/public/images/office2.jpg') no-repeat center center/cover;
+    background-image: url("/images/office2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     height: 100vh;
     color: white;
     display: flex;
@@ -55,7 +64,7 @@ header {
 }
 
 .hero-content {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(220, 53, 53, 0.6);
     padding: 40px;
     border-radius: 10px;
 }
