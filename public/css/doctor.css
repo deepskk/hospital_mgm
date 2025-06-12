@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background: #f8f8f8;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #000;
+  border-radius: 0 0 30px 30px;
+}
+
+.header h2 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.header a {
+  text-decoration: none;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.main {
+  display: flex;
+}
+
+.sidebar {
+  width: 20%;
+  border-right: 2px solid black;
+  padding: 20px;
+}
+
+.sidebar p {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.sidebar a {
+  display: block;
+  margin: 5px 0 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.sidebar a.active {
+  color: deepskyblue;
+}
+
+.content {
+  width: 80%;
+  padding: 30px;
+}
+
+.form-box, .table-box {
+  border: 2px solid black;
+  padding: 20px;
+}
+
+.form-box h3, .table-box h3 {
+  text-align: center;
+  margin-top: 0;
+  border-bottom: 2px solid black;
+  padding-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="submit"] {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+}
+
+input[type="submit"] {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
