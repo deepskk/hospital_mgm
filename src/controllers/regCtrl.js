@@ -8,14 +8,19 @@ exports.regCtrlLogin = (req, res) => {
     res.render("login");
 };
 
-exports.verifyLogin = (req, res) => {
+exports.SignIn = (req, res) => {
     const { username, password, role } = req.body;
 
     // Static check for Admin credentials
     if (username === "admin" && password === "admin" && role === "admin") {
-        return res.render("adminDashboard"); // ✅ Show dashboard
+        return res.render("Admin/adminDashboard"); // ✅ Show dashboard
     }
 
     // If login fails
     res.send("❌ Invalid Username, Password or Role.");
 };
+
+exports.addDoctor =(req,res)=>{
+    console.log("Rendering addDoctor page.");
+    res.render("addDoctor");
+}
