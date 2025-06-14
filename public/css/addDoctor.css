@@ -1,43 +1,39 @@
 /* addDoctor.css - Modern, Responsive Design for Add Doctor Form */
-*{
-    margin: 0px;
-    padding: 0px;
-}
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f2f6fa;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+* {
+  margin: 0px;
+  padding: 0px;
 }
 
-.container {
+/* Removed body styles to prevent conflict with adminDashboard.css */
+body{
+  background-color: #b7edb7;
+}
+.form-container {
   background-color: #ffffff;
   width: 100%;
   max-width: 550px;
+  margin-left: 300px;
+  margin-top: 50px; /* center horizontally and margin top */
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
+.form-container h2 {
   text-align: center;
   color: #2c3e50;
   font-size: 28px;
   margin-bottom: 30px;
 }
 
-form {
+.form-container form {
   display: flex;
   flex-direction: column;
 }
 
-input[type="text"],
-input[type="number"],
-select {
+.form-container input[type="text"],
+.form-container input[type="number"],
+.form-container select {
   padding: 14px 16px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
@@ -48,21 +44,21 @@ select {
   box-sizing: border-box;
 }
 
-input:focus,
-select:focus {
+.form-container input:focus,
+.form-container select:focus {
   border-color: #3498db;
   outline: none;
   box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
 }
 
-select {
+.form-container select {
   background-color: #fff;
   color: #333;
 }
 
-button {
+.form-container button {
   padding: 14px;
-  background-color: #3498db;
+  background-color: #2e8b57;
   color: white;
   border: none;
   border-radius: 8px;
@@ -71,14 +67,22 @@ button {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
-  background-color: #2980b9;
+.form-container button:hover {
+  background-color: #2e8b57;
   transform: scale(1.02);
 }
 
+.form-container label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
 @media screen and (max-width: 600px) {
-  .container {
+  .form-container {
     padding: 20px;
-    margin: 10px;
+    margin: 10px auto;
   }
 }

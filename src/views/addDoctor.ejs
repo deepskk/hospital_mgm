@@ -2,29 +2,35 @@
 <html>
 <head>
   <title>Add Doctor</title>
+  
   <link rel="stylesheet" href="/css/addDoctor.css">
+  <link rel="stylesheet" href="/css/adminDashboard.css">
 </head>
 <body>
-  <div class="container">
-    <h2>Add Doctor</h2>
-    <form action="/admin/add-doctor" method="POST">
-      <input type="text" name="doctor_name" placeholder="Doctor Name" required>
-      <input type="text" name="doctor_specialization" placeholder="Specialization" required>
-      <input type="text" name="doctor_contact" placeholder="Contact Number" required>
-      <input type="number" name="doctor_experience" placeholder="Experience (in years)" required>
+  <%- include('partials/sidebar') %>
 
-      <select name="status" required>
-        <option value="">Select status</option>
-        <option value="Active">Active</option>
-        <option value="In-Active">In-Active</option>
-        <option value="On Leave">On Leave</option>
-      </select>
+  <div class="main-container">
+    <div class="form-container">
+      <h2>Add Doctor</h2>
+      <form action="/admin/add-doctor" method="POST">
+        <input type="text" name="doctor_name" placeholder="Doctor Name" required>
+        <input type="text" name="doctor_specialization" placeholder="Specialization" required>
+        <input type="text" name="doctor_contact" placeholder="Contact Number" required>
+        <input type="number" name="doctor_experience" placeholder="Experience (in years)" required>
 
-      <input type="text" name="UserName" placeholder="UserName" required>
-      <input type="text" name="Password" placeholder="Password" required>
+        <select name="status" required>
+          <option value="">Select status</option>
+          <option value="Active">Active</option>
+          <option value="In-Active">In-Active</option>
+          <option value="On Leave">On Leave</option>
+        </select>
 
-      <button type="submit">Add Doctor</button>
-    </form>
+        <input type="text" name="UserName" placeholder="UserName" required>
+        <input type="text" name="Password" placeholder="Password" required>
+
+        <button type="submit">Add Doctor</button>
+      </form>
+    </div>
   </div>
 </body>
 </html>

@@ -1,0 +1,38 @@
+<aside class="sidebar" id="sidebar">
+  <h2 style="color: black; text-align: left;">Admin Panel</h2>
+  <ul>
+    <li><a href="#">🏠 Dashboard</a></li>
+    <li><a href="#">👤 Admin</a></li>
+
+    <!-- Doctor Menu -->
+    <li class="doctor-menu">
+      <a href="javascript:void(0)" onclick="toggleDoctorMenu()">🩺 Doctor ⯆</a>
+      <ul class="submenu" id="doctorSubMenu">
+        <li><a href="/admin/add-doctor">➕ Add Doctor</a></li>
+        <li><a href="/admin/view-doctors">👁 View Doctors</a></li>
+      </ul>
+    </li>
+
+    <!-- Receptionist Menu -->
+    <li class="reception-menu">
+      <a href="javascript:void(0)" onclick="toggleReceptionMenu()">👩‍💼 Receptionist ⯆</a>
+      <ul class="submenu" id="receptionSubMenu">
+        <li><a href="/admin/add-receptionist">➕ Add Receptionist</a></li>
+        <li><a href="/admin/view-receptionists">👁 View Receptionists</a></li>
+      </ul>
+    </li>
+
+    <li class="logout"><a href="#">🚪 Logout</a></li>
+  </ul>
+</aside>
+<script>
+function toggleDoctorMenu() {
+  var menu = document.getElementById("doctorSubMenu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+function toggleReceptionMenu() {
+  var menu = document.getElementById("receptionSubMenu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+</script>

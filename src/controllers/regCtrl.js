@@ -24,3 +24,4 @@ exports.addDoctor =(req,res)=>{
     console.log("Rendering addDoctor page.");
     res.render("addDoctor");
 }
+
