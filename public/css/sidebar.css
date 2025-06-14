@@ -1,10 +1,13 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+/* sidebar.css */
+
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
-  height: 300px;
+  min-height: 300px;
   margin: 0;
   font-family: Arial, sans-serif;
   display: flex;
@@ -24,6 +27,8 @@ body {
 .sidebar h2 {
   font-size: 20px;
   margin-bottom: 30px;
+  color: black;
+  text-align: left;
 }
 
 .sidebar ul {
@@ -47,11 +52,10 @@ body {
   font-weight: bold;
 }
 
-/* Main container */
-.main-container {
-  margin-left: 220px;
-  padding: 20px;
-  flex: 1;
+.submenu {
+  display: none;
+  padding-left: 15px;
+  transition: max-height 0.3s ease;
 }
 
 /* Toggle Button */
@@ -69,7 +73,7 @@ body {
   border-radius: 4px;
 }
 
-/* Top Nav */
+/* Top Navigation */
 .top-nav {
   display: flex;
   justify-content: flex-end;
@@ -90,54 +94,6 @@ body {
   background-color: #27ae60;
   border-radius: 5px;
   padding: 12px 29px;
-}
-
-/* Dashboard Content */
-.dashboard {
-  background-color: white;
-  padding: 30px;
-  margin-top: 20px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-
-.action-buttons {
-  margin-top: 20px;
-}
-
-.btn {
-  padding: 10px 16px;
-  margin: 5px;
-  border: none;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.blue { background-color: #3498db; }
-.green { background-color: #27ae60; }
-.yellow { background-color: #f1c40f; }
-.red { background-color: #e74c3c; }
-
-/* Footer */
-footer {
-  display: flex;
-  justify-content: space-between;
-  background-color: #d9ecdd;
-  padding: 20px;
-  margin-top: 400px;
-  border-radius: 10px;
-}
-
-footer div {
-  flex: 1;
-  margin-right: 20px;
-}
-
-footer a {
-  color: #333;
-  text-decoration: none;
 }
 
 /* Responsive */
@@ -161,9 +117,3 @@ footer a {
     display: block;
   }
 }
-.submenu {
-  display: none;
-  padding-left: 15px;
-  transition: max-height 0.3s ease;
-}
-

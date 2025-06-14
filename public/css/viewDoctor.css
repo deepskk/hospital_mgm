@@ -1,0 +1,63 @@
+.vd-body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #b7edb7;
+  margin: 0;
+  padding: 0;
+}
+
+.vd-container {
+  max-width: 1000px;
+  margin-left: 350px;
+  background: #ffffff;
+  margin-top: 100px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.vd-heading {
+  text-align: center;
+  color: #2e8b57;
+  margin-bottom: 25px;
+}
+
+.vd-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.vd-table thead {
+  background-color: #2e8b57;
+  color: white;
+}
+
+.vd-table th,
+.vd-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.vd-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.vd-no-data {
+  text-align: center;
+  color: #777;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.vd-delete-btn {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.vd-edit-btn {
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+}

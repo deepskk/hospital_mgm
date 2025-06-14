@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update Doctor</title>
+  <link rel="stylesheet" href="/css/addDoctor.css">
+  <link rel="stylesheet" href="/css/adminDashboard.css">
+</head>
+<body>
+     <!-- Include Sidebar -->
+  <%- include('../partials/sidebar') %>
+   <!-- Include Navbar -->
+    <%- include('../partials/navbar') %>
+  <div class="container">
+    <h2>Update Doctor</h2>
+    <form action="/admin/update-doctor/<%= doctor.doctor_id %>" method="POST">
+
+      <label for="doctor_name">Doctor Name</label>
+      <input type="text" id="doctor_name" name="doctor_name" value="<%= doctor.doctor_name %>" required>
+
+      <label for="doctor_specialization">Specialization</label>
+      <input type="text" id="doctor_specialization" name="doctor_specialization" value="<%= doctor.doctor_specialization %>" required>
+
+      <label for="doctor_contact">Contact</label>
+      <input type="text" id="doctor_contact" name="doctor_contact" value="<%= doctor.doctor_contact %>" required>
+
+      <label for="doctor_experience">Experience (in years)</label>
+      <input type="number" id="doctor_experience" name="doctor_experience" value="<%= doctor.doctor_experience %>" required>
+
+      <label for="status">Status</label>
+      <select id="status" name="status" required>
+        <option value="">Select status</option>
+        <option value="Active" <%= doctor.status === 'Active' ? 'selected' : '' %>>Active</option>
+        <option value="In-Active" <%= doctor.status === 'In-Active' ? 'selected' : '' %>>In-Active</option>
+        <option value="On Leave" <%= doctor.status === 'On Leave' ? 'selected' : '' %>>On Leave</option>
+      </select>
+
+      <button type="submit">Update Doctor</button>
+    </form>
+  </div>
+</body>
+</html>

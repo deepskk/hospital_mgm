@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Receptionist List</title>
+  <link rel="stylesheet" href="/css/viewDoctor.css"> <!-- You can reuse the same CSS -->
+  <link rel="stylesheet" href="/css/sidebar.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <%- include ('../partials/sidebar.ejs') %>
+
+  <div class="vd-container">
+    <h2 class="vd-heading">Receptionist Records</h2>
+
+    <% if (receptionists.length > 0) { %>
+      <table class="vd-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Status</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% receptionists.forEach(rec => { %>
+            <tr>
+              <td><%= rec.reception_name %></td>
+              <td><%= rec.reception_contact %></td>
+              <td><%= rec.status %></td>
+              <td>
+                <a href="/admin/update-receptionist/<%= rec.reception_id %>" class="vd-edit-btn">Edit</a>
+              </td>
+              <td>
+                <a href="/admin/delete-receptionist/<%= rec.reception_id %>" class="vd-delete-btn" onclick="return confirm('Are you sure you want to delete this receptionist?')">Delete</a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p class="vd-no-data">No receptionist data available.</p>
+    <% } %>
+  </div>
+</body>
+</html>

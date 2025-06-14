@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor List</title>
+  <link rel="stylesheet" href="/css/viewDoctor.css">
+  <link rel="stylesheet" href="/css/sidebar.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body >
+  <%- include ('../partials/sidebar.ejs') %>
+
+  <div class="vd-container">
+    <h2 class="vd-heading">Doctor Records</h2>
+
+    <% if (doctors.length > 0) { %>
+      <table class="vd-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Specialization</th>
+            <th>Contact</th>
+            <th>Experience (yrs)</th>
+            <th>Status</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% doctors.forEach(doc => { %>
+            <tr>
+              <td><%= doc.doctor_name %></td>
+              <td><%= doc.doctor_specialization %></td>
+              <td><%= doc.doctor_contact %></td>
+              <td><%= doc.doctor_experience %></td>
+              <td><%= doc.status %></td>
+              <td>
+                <a href="/admin/update-doctor/<%= doc.doctor_id %>" class="vd-edit-btn">Edit</a>
+              </td>
+              <td>
+                <a href="/admin/delete-doctor/<%= doc.doctor_id %>" class="vd-delete-btn" onclick="return confirm('Are you sure you want to delete this doctor?')">Delete</a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p class="vd-no-data">No doctor data available.</p>
+    <% } %>
+  </div>
+</body>
+</html>
