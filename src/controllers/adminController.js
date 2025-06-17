@@ -30,10 +30,10 @@ exports.updateDoctor = async (req, res) => {
 };
 
 exports.deleteDoctor = async (req, res) => {
-  const doctorId = req.params.id;
+  const user_id = req.params.id;
   try {
-    await doctorService.deleteDoctorById(doctorId);
-    res.redirect('/admin/view-doctors');
+    await doctorService.deleteDoctorById(user_id);
+    res.redirect("/admin/view-doctors");
   } catch (error) {
     console.error('Error deleting doctor:', error);
     res.status(500).send('Server Error');
@@ -63,3 +63,33 @@ exports.viewReceptionists = async (req, res) => {
     res.status(500).send("Failed to load receptionist data");
   }
 };
+
+exports.showUpdateReceptionistForm = async (req, res) => {
+  try {
+    const receptionist = await receptionistService.getReceptionistById(req.params.id);
+    res.render("Admin/updateReceptionist", { receptionist });
+  } catch (err) {
+    console.error("Error loading receptionist data:", err);
+    res.status(500).send("Error loading receptionist data");
+  }
+};
+exports.updateReceptionist = async (req, res) => {
+  try {
+    await receptionistService.updateReceptionist(req.params.id, req.body);
+    res.redirect('/admin/view-receptionist');  // ✅ After update, go back to list
+  } catch (err) {
+    console.error("Error updating receptionist:", err);
+    res.status(500).send("Error updating receptionist");
+  }
+};
+exports.deleteReceptionist = async (req, res) => {
+  try {
+    const receptionistId = req.params.id;
+    await receptionistService.deleteReceptionist(receptionistId);
+    res.redirect('/admin/view-receptionist');
+  } catch (err) {
+    console.error('Error deleting receptionist:', err);
+    res.status(500).send('Internal Server Error');
+  }
+};
+

@@ -5,6 +5,7 @@ const route = require("./routes/regroutes");
 const db = require("./config/db");
 const adminRouter = require('./routes/adminRouter');
 // const doctorRoutes = require("./routes/doctorRoutes");
+const receptionRoutes = require("./routes/receptionRoutes");
 
 const app = express();
 
@@ -14,10 +15,14 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-// app.use(expressLayouts);
+app.use("/receptionist", receptionRoutes);
+// Server Bootstrap CSS and JS
+// app.use('/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
 
 
 app.use("/", route);
 app.use('/admin', adminRouter);
 
 module.exports = app;
+
+

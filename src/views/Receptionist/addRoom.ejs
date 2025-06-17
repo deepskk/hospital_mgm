@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Room</title>
+  <link rel="stylesheet" href="/css/addRoom.css">
+  <link rel="stylesheet" href="/css/receptionistDashboard.css">
+</head>
+<body>
+  <%- include('../partials/sidebarReceptionist') %>
+
+  <!-- 🟡 Wrap all content inside main-container -->
+  <div class="main-container">
+    <%- include('../partials/navbarReceptionist') %>
+
+    <div class="add-room-page">
+      <div class="add-room-form-container">
+        <h2>Add Room</h2>
+        <form action="/receptionist/add-room" method="POST">
+          <label>Room Number:</label>
+          <input type="number" name="room_no" required />
+
+          <label>Room Type:</label>
+          <select name="room_type" required>
+            <option value="">Select Type</option>
+            <option value="General">General</option>
+            <option value="Private">Private</option>
+            <option value="ICU">ICU</option>
+          </select>
+
+          <label>Charges Per Day:</label>
+          <input type="number" name="charges_per_day" step="0.01" required />
+
+          <button type="submit">Add Room</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -2,15 +2,109 @@
 <html>
 <head>
   <title>Update Doctor</title>
-  <link rel="stylesheet" href="/css/addDoctor.css">
   <link rel="stylesheet" href="/css/adminDashboard.css">
 </head>
+<style>
+  /* update-doctor.css - Modern, Responsive Design for Add Doctor Form */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Removed body styles to prevent conflict with adminDashboard.css */
+body{
+  background-color: #b7edb7;
+}
+.form-container-update-doctor {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 550px;
+  margin-left: 300px;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  min-height: fit-content;
+}
+
+
+.form-container-update-doctor h2 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.form-container-update-doctor form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container-update-doctor input[type="text"],
+.form-container-update-doctor input[type="number"],
+.form-container-update-doctor select {
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-container-update-doctor input:focus,
+.form-container-update-doctor select:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
+}
+
+.form-container-update-doctor select {
+  background-color: #fff;
+  color: #333;
+}
+
+.form-container-update-doctor button {
+  padding: 14px;
+  background-color: #2e8b57;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-container-update-doctor button:hover {
+  background-color: #2e8b57;
+  transform: scale(1.02);
+}
+
+.form-container-update-doctor label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+@media screen and (max-width: 600px) {
+  .form-container-update-doctor  {
+    padding: 20px;
+    margin: 10px auto;
+  }
+}
+
+</style>
 <body>
-     <!-- Include Sidebar -->
+  <!-- Include Sidebar -->
   <%- include('../partials/sidebar') %>
-   <!-- Include Navbar -->
-    <%- include('../partials/navbar') %>
-  <div class="container">
+  <!-- Include Navbar -->
+  <%- include('../partials/navbar') %>
+
+  <!-- 🔥 Add wrapper div with class="form-container" -->
+  <div class="form-container-update-doctor">
     <h2>Update Doctor</h2>
     <form action="/admin/update-doctor/<%= doctor.doctor_id %>" method="POST">
 

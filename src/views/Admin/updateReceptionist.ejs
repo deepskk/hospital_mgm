@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Receptionist</title>
+  <link rel="stylesheet" href="/css/adminDashboard.css">
+  <style>
+    /* update-receptionist.css - Responsive Form Styles */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #eaf2ff;
+    }
+
+    .form-container-update-receptionist {
+      background-color: #ffffff;
+      width: 100%;
+      max-width: 550px;
+      margin-left: 300px;
+      margin-top: 50px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      min-height: fit-content;
+    }
+
+    .form-container-update-receptionist h2 {
+      text-align: center;
+      color: #2c3e50;
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .form-container-update-receptionist form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-container-update-receptionist label {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .form-container-update-receptionist input[type="text"],
+    .form-container-update-receptionist select {
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .form-container-update-receptionist input:focus,
+    .form-container-update-receptionist select:focus {
+      border-color: #3498db;
+      outline: none;
+      box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
+    }
+
+    .form-container-update-receptionist select {
+      background-color: #fff;
+      color: #333;
+    }
+
+    .form-container-update-receptionist button {
+      padding: 14px;
+      background-color: #2e8b57;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 17px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .form-container-update-receptionist button:hover {
+      background-color: #276747;
+      transform: scale(1.02);
+    }
+
+    @media screen and (max-width: 600px) {
+      .form-container-update-receptionist {
+        margin: 10px auto;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar + Navbar -->
+  <%- include('../partials/sidebar') %>
+  <%- include('../partials/navbar') %>
+
+  <!-- Update Receptionist Form -->
+  <div class="form-container-update-receptionist">
+    <h2>Update Receptionist</h2>
+    <form action="/admin/update-receptionist/<%= receptionist.reception_id %>" method="POST">
+      <label for="reception_name">Name</label>
+      <input type="text" name="reception_name" id="reception_name" value="<%= receptionist.reception_name %>" required>
+
+      <label for="reception_contact">Contact</label>
+      <input type="text" name="reception_contact" id="reception_contact" value="<%= receptionist.reception_contact %>" required>
+
+      <label for="status">Status</label>
+      <select name="status" id="status" required>
+        <option value="active" <%= receptionist.status === 'active' ? 'selected' : '' %>>Active</option>
+        <option value="inactive" <%= receptionist.status === 'inactive' ? 'selected' : '' %>>Inactive</option>
+      </select>
+
+      <button type="submit">Update Receptionist</button>
+    </form>
+  </div>
+</body>
+</html>

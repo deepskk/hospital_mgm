@@ -14,7 +14,7 @@ body {
 /* Sidebar */
 .sidebar {
   width: 220px;
-  background-color: #d9ecdd;
+  background-color: #89d89a;
   padding: 20px;
   height: 100vh;
   position: fixed;
@@ -73,7 +73,7 @@ body {
 .top-nav {
   display: flex;
   justify-content: flex-end;
-  background-color: #eaf4ed;
+  background-color: #d0e8d7;
   padding: 10px;
   gap: 10px;
 }
