@@ -1,0 +1,40 @@
+<!-- Sidebar Partial for Receptionist -->
+<aside class="sidebar" id="sidebar">
+  <h2>Receptionist Panel</h2>
+  <ul>
+    <li><a href="/receptionist/dashboard">🏠 Dashboard</a></li>
+
+    <li>
+      <a href="javascript:void(0)" onclick="toggleSubMenu('roomMenu')">🛏️ Room ⯆</a>
+      <ul class="submenu" id="roomMenu">
+        <li><a href="/receptionist/add-room">➕ Add Room</a></li>
+        <li><a href="/receptionist/view-rooms">👁 View Rooms</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="javascript:void(0)" onclick="toggleSubMenu('nurseMenu')">🧑‍⚕️ Nurse ⯆</a>
+      <ul class="submenu" id="nurseMenu">
+        <li><a href="/receptionist/add-nurse">➕ Add Nurse</a></li>
+        <li><a href="/receptionist/view-nurses">👁 View Nurses</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="javascript:void(0)" onclick="toggleSubMenu('patientMenu')">🧍 Patient ⯆</a>
+      <ul class="submenu" id="patientMenu">
+        <li><a href="/receptionist/add-patient">➕ Add Patient</a></li>
+        <li><a href="/receptionist/view-patients">👁 View Patients</a></li>
+      </ul>
+    </li>
+
+    <li><a href="/logout">🚪 Logout</a></li>
+  </ul>
+</aside>
+
+<script>
+  function toggleSubMenu(id) {
+    const menu = document.getElementById(id);
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+  }
+</script>

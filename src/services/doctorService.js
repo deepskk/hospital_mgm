@@ -6,6 +6,7 @@ exports.getAllDoctors = () => {
       SELECT 
         d.doctor_id, d.doctor_name, d.doctor_specialization, 
         d.doctor_contact, d.doctor_experience, d.status,
+        d.user_id,
         u.user_name AS doctor_username,
         a.admin_contact AS added_by
       FROM doctor d
@@ -55,12 +56,14 @@ exports.updateDoctor = (id, data) => {
 };
 
 exports.deleteDoctorById = async (id) => {
-  const sql = 'DELETE FROM doctor WHERE doctor_id = ?';
+  console.log(id);
+  const sql = 'DELETE FROM users WHERE user_id = ?';
   return new Promise((resolve, reject) => {
     db.query(sql, [id], (err, result) => {
       if (err) return reject(err);
       resolve(result);
     });
   });
+
 };
 

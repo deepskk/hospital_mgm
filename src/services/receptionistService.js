@@ -23,13 +23,36 @@ const receptionistService = {
   },
   async getAllReceptionists() {
     const [rows] = await db.promise().query(
-     `SELECT * FROM reception`
-     );
-      return rows;
-  }
-  
-};
+      `SELECT * FROM reception`
+    );
+    return rows;
+  },
+  // Delete receptionist
+  async deleteReceptionist(receptionistId) {
+    await db.promise().query(
+      `DELETE FROM users WHERE user_id = ?`,
+      [receptionistId]
+    );
+  },
+  async getReceptionistById(id) {
+    const [rows] = await db.promise().query(
+      `SELECT * FROM reception WHERE reception_id = ?`,
+      [id]
+    );
+    return rows[0]; // returns a single receptionist object
+  },
+    async updateReceptionist(id, data) {
+    const { reception_name, reception_contact, status } = data;
+    await db.promise().query(
+      `UPDATE reception
+       SET reception_name = ?, reception_contact = ?, status = ?
+       WHERE reception_id = ?`,
+      [reception_name, reception_contact, status, id]
+    );
+  },
 
+
+};
 
 
 

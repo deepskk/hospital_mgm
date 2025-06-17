@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>View Rooms</title>
+  <link rel="stylesheet" href="/css/viewRooms.css">
+  <link rel="stylesheet" href="/css/receptionistDashboard.css">
+</head>
+<body>
+  <%- include('../partials/sidebarReceptionist') %>
+
+  <!-- 🟡 Wrap everything inside .main-container -->
+  <div class="main-container">
+    <%- include('../partials/navbarReceptionist') %>
+
+    <div class="main-content">
+      <h2>All Rooms</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Room No</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Charges/Day</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% rooms.forEach(room => { %>
+            <tr>
+              <td><%= room.room_no %></td>
+              <td><%= room.room_type %></td>
+              <td><%= room.room_status %></td>
+              <td>₹<%= room.charges_per_day %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,3 +1,5 @@
+const db = require("../config/db");
+
 exports.regHomePage = (req,res)=>{
     console.log("Rendering home page..");
     res.render("home");
@@ -8,16 +10,39 @@ exports.regCtrlLogin = (req, res) => {
     res.render("login");
 };
 
-exports.SignIn = (req, res) => {
-    const { username, password, role } = req.body;
+exports.SignIn = async (req, res) => {
+  const { username, password, role } = req.body;
 
-    // Static check for Admin credentials
-    if (username === "admin" && password === "admin" && role === "admin") {
-        return res.render("Admin/adminDashboard"); // ✅ Show dashboard
+  if (role === "admin") {
+    // Static admin login
+    if (username === "admin" && password === "admin") {
+      return res.render("Admin/adminDashboard");
+    } else {
+      return res.send("Invalid admin credentials");
     }
+  }
 
-    // If login fails
-    res.send("❌ Invalid Username, Password or Role.");
+  if (role === "receptionist") {
+    try {
+      const [rows] = await db.promise().query(
+        "SELECT * FROM users WHERE user_name = ? AND password = ? AND role = ?",
+        [username, password, "reception"]
+      );
+
+      if (rows.length > 0) {
+        return res.render("Receptionist/dashboard");
+      } else {
+        return res.send("Invalid receptionist credentials");
+      }
+    } catch (err) {
+      console.error("Database error:", err);
+      return res.send("Internal Server Error");
+    }
+  }
+
+  // Optional: add logic for doctor login here
+
+  res.send("Invalid Username, Password, or Role.");
 };
 
 exports.addDoctor =(req,res)=>{
