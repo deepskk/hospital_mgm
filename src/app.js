@@ -1,11 +1,11 @@
 const express = require("express");
-// const expressLayouts = require('express-ejs-layouts');
 const path = require("path");
-const route = require("./routes/regroutes");
-const db = require("./config/db");
-const adminRouter = require('./routes/adminRouter');
-// const doctorRoutes = require("./routes/doctorRoutes");
-const receptionRoutes = require("./routes/receptionRoutes");
+
+const route = require("./routes/regroutes"); // General login/home routes
+const receptionRoutes = require("./routes/receptionRoutes"); // Receptionist modules
+const adminRouter = require("./routes/adminRouter"); // Admin modules
+
+const db = require("./config/db"); // MySQL DB Connection
 
 const app = express();
 
@@ -15,14 +15,10 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
+
+// Routes
 app.use("/receptionist", receptionRoutes);
-// Server Bootstrap CSS and JS
-// app.use('/bootstrap', express.static(path.join(__dirname, 'node_modules/bootstrap/dist')));
-
-
-app.use("/", route);
-app.use('/admin', adminRouter);
+app.use("/admin", adminRouter);
+app.use("/", route); // This should be last to act as fallback route
 
 module.exports = app;
-
-

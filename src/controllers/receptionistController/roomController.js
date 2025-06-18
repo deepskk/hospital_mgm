@@ -1,4 +1,5 @@
-const db = require("../config/db");
+const db = require("../../config/db");
+
 
 exports.getAddRoomPage = (req, res) => {
   res.render("Receptionist/addRoom");

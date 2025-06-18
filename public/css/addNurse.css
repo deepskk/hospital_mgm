@@ -1,0 +1,60 @@
+.add-nurse-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0 30px 240px; /* Adjust for sidebar */
+  min-height: 100vh;
+}
+
+.add-nurse-form-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.add-nurse-form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.add-nurse-form-container form label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.add-nurse-form-container form input,
+.add-nurse-form-container form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-nurse-form-container form button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  background-color: #2ecc71;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.add-nurse-form-container form button:hover {
+  background-color: #27ae60;
+}
+
+@media (max-width: 768px) {
+  .add-nurse-page {
+    margin-left: 0;
+    padding-top: 80px;
+  }
+}
