@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Nurse</title>
+  <link rel="stylesheet" href="/css/addNurse.css">
+  <link rel="stylesheet" href="/css/receptionistDashboard.css">
+</head>
+<body>
+  <%- include('../partials/sidebarReceptionist') %>
+
+  <div class="main-container">
+    <%- include('../partials/navbarReceptionist') %>
+
+    <div class="add-nurse-page">
+      <div class="add-nurse-form-container">
+        <h2>Add Nurse</h2>
+        <form action="/receptionist/add-nurse" method="POST">
+          <label for="nurse_name">Nurse Name:</label>
+          <input type="text" name="nurse_name" required>
+
+          <label for="nurse_contact">Nurse Contact:</label>
+          <input type="text" name="nurse_contact" required>
+
+          <label for="nurse_shift">Shift:</label>
+          <select name="nurse_shift" required>
+            <option value="">Select Shift</option>
+            <option value="Morning">Morning</option>
+            <option value="Evening">Evening</option>
+            <option value="Night">Night</option>
+          </select>
+
+          <button type="submit">Add Nurse</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

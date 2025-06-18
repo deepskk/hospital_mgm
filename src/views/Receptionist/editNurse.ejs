@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Nurse</title>
+  <link rel="stylesheet" href="/css/addNurse.css">
+  <link rel="stylesheet" href="/css/receptionistDashboard.css">
+</head>
+<style>
+    .main-container{
+        margin-left: 500px;
+        margin-top: 100px;
+    }
+</style>
+<body>
+  <%- include('../partials/sidebarReceptionist') %>
+  <div class="main-container">
+    <%- include('../partials/navbarReceptionist') %>
+
+    <div class="add-nurse-form-container">
+      <h2>Edit Nurse</h2>
+      <form action="/receptionist/update-nurse" method="POST">
+        <input type="hidden" name="nurse_id" value="<%= nurse.nurse_id %>">
+
+        <label for="nurse_name">Name:</label>
+        <input type="text" name="nurse_name" value="<%= nurse.nurse_name %>" required>
+
+        <label for="nurse_contact">Contact:</label>
+        <input type="text" name="nurse_contact" value="<%= nurse.nurse_contact %>" required>
+
+        <label for="nurse_shift">Shift:</label>
+        <select name="nurse_shift" required>
+          <option value="Morning" <%= nurse.nurse_shift === "Morning" ? "selected" : "" %>>Morning</option>
+          <option value="Evening" <%= nurse.nurse_shift === "Evening" ? "selected" : "" %>>Evening</option>
+          <option value="Night" <%= nurse.nurse_shift === "Night" ? "selected" : "" %>>Night</option>
+        </select>
+
+        <button type="submit">Update Nurse</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+.view-nurse-page {
+  padding: 60px 20px 20px 240px; /* space for sidebar */
+  min-height: 100vh;
+  background-color: #b7edb7;
+}
+
+.view-nurse-page h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.nurse-table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nurse-table th,
+.nurse-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.nurse-table th {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+.nurse-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+@media (max-width: 768px) {
+  .view-nurse-page {
+    padding-left: 0;
+    padding-top: 100px;
+  }
+
+  .nurse-table {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+/* Action Buttons */
+.btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-edit {
+  background-color: #3498db;
+  color: white;
+}
+
+.btn-edit:hover {
+  background-color: #2980b9;
+}
+
+.btn-delete {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c0392b;
+}
