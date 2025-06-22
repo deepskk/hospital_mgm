@@ -1,0 +1,192 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generate Bill</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 40px;
+    }
+    .form-container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Generate Bill for Patient <%= patientId %></h2>
+    <form action="/receptionist/bill/<%= patientId %>" method="POST">
+      <input type="number" name="room_charges" placeholder="Room Charges" min="0" required>
+      <input type="number" name="treatment_charges" placeholder="Treatment Charges" min="0" required>
+      <input type="number" name="nurse_charges" placeholder="Nurse Charges" min="0" required>
+      <input type="number" name="medicine_charges" placeholder="Medicine Charges" min="0" required>
+      <button type="submit">Submit Bill</button>
+    </form>
+  </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generate Bill</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+       background-color: #c6b93fdf;
+      
+      padding: 40px;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="number"],
+    input[type="text"],
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    input[readonly] {
+      background-color: #f9f9f9;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+  <script>
+    function calculateTotal() {
+      const room = parseFloat(document.getElementById('room_charges').value) || 0;
+      const treat = parseFloat(document.getElementById('treatment_charges').value) || 0;
+      const nurse = parseFloat(document.getElementById('nurse_charges').value) || 0;
+      const med = parseFloat(document.getElementById('medicine_charges').value) || 0;
+      document.getElementById('total_amount').value = (room + treat + nurse + med).toFixed(2);
+    }
+
+    window.onload = () => {
+      // Auto-fill today's date in billing_date
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('billing_date').value = today;
+    };
+  </script>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Generate Patient Bill</h2>
+    <form action="/receptionist/bill/<%= patientId %>" method="POST">
+      
+      <div class="form-group">
+        <label>Bill ID</label>
+        <input type="text" value="Auto Generated" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Patient ID</label>
+        <input type="text" name="patient_id" value="<%= patientId %>" readonly>
+      </div>
+
+        
+
+
+
+
+      <div class="form-group">
+        <label>Room Charges</label>
+        <input type="number" id="room_charges" name="room_charges" min="0" oninput="calculateTotal()" required>
+      </div>
+
+      <div class="form-group">
+        <label>Treatment Charges</label>
+        <input type="number" id="treatment_charges" name="treatment_charges" min="0" oninput="calculateTotal()" required>
+      </div>
+
+      <div class="form-group">
+        <label>Nurse Charges</label>
+        <input type="number" id="nurse_charges" name="nurse_charges" min="0" oninput="calculateTotal()" required>
+      </div>
+
+      <div class="form-group">
+        <label>Medicine Charges</label>
+        <input type="number" id="medicine_charges" name="medicine_charges" min="0" oninput="calculateTotal()" required>
+      </div>
+
+      <div class="form-group">
+        <label>Total Amount</label>
+        <input type="text" id="total_amount" name="total_amount" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Billing Date</label>
+        <input type="date" id="billing_date" name="billing_date" readonly>
+      </div>
+
+      <button type="submit">Generate Bill</button>
+    </form>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,154 @@
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patient Bill</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      padding: 30px;
+    }
+    .bill-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .bill-item {
+      margin: 20px 0;
+      font-size: 16px;
+    }
+    .label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="bill-container">
+    <h2>Patient Bill</h2>
+
+    <div class="bill-item"><span class="label">Patient ID:</span> <%= bill.patient_id %></div>
+    <div class="bill-item"><span class="label">Patient Name:</span> <%= bill.patient_name %></div>
+    <div class="bill-item"><span class="label">Doctor Name:</span> <%= bill.doctor_name %></div>
+    <div class="bill-item"><span class="label">Room No:</span> <%= bill.room_no || 'N/A' %></div>
+    <div class="bill-item"><span class="label">Prescribed Medicines:</span> <%= bill.medicines || 'No prescriptions yet' %></div>
+  </div>
+</body>
+</html> -->
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patient Bill</title>
+  <link rel="stylesheet" href="/css/bill.css">
+</head>
+<body>
+  
+
+  <div class="bill-container">
+    <h1>Hospital XYZ</h1>
+    <h2>Patient Bill</h2>
+    <table>
+      <tr><td>Patient ID:</td><td><%= bill.patient_id %></td></tr>
+      <tr><td>Patient Name:</td><td><%= bill.patient_name %></td></tr>
+      <tr><td>Doctor Name:</td><td><%= bill.doctor_name %></td></tr>
+      <tr><td>Room Charges:</td><td>&#8377; <%= bill.room_charges.toFixed(2) %></td></tr>
+      <tr><td>Treatment Charges:</td><td>&#8377; <%= bill.treatment_charges.toFixed(2) %></td></tr>
+      <tr><td>Nurse Charges:</td><td>&#8377; <%= bill.nurse_charges.toFixed(2) %></td></tr>
+      <tr><td>Medicine Charges:</td><td>&#8377; <%= bill.medicine_charges.toFixed(2) %></td></tr>
+      <tr class="total"><td>Total Amount:</td><td>&#8377; <%= bill.total_amount.toFixed(2) %></td></tr>
+      <tr><td>Billing Date:</td><td><%= bill.billing_date.toISOString().split("T")[0] %></td></tr>
+    </table>
+  </div>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generate Patient Bill</title>
+  <link rel="stylesheet" href="/css/generateBill.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="outer-wrapper">
+    <div class="bill-container">
+      <h2>🧾 Generate Patient Billlllllllllllll</h2>
+      <form action="/receptionist/bill/<%= patientId %>" method="POST" class="bill-form">
+
+        <div class="form-group">
+          <label>Bill ID</label>
+          <input type="text" value="Auto Generated" readonly>
+        </div>
+
+        <div class="form-group">
+          <label>Patient ID</label>
+          <input type="text" name="patient_id" value="<%= patientId %>" readonly>
+        </div>
+
+        <div class="form-group">
+          <label>Room Number</label>
+          <select name="room_no" required>
+            <option value="">-- Select Room --</option>
+            <% if (rooms && rooms.length) { %>
+              <% rooms.forEach(function(room) { %>
+                <option value="<%= room.room_no %>"><%= room.room_no %></option>
+              <% }) %>
+            <% } else { %>
+              <option disabled>No rooms found</option>
+            <% } %>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Room Charges (₹)</label>
+          <input type="number" name="room_charges" placeholder="e.g., 1500" required>
+        </div>
+
+
+        <div class="form-group">
+          <label>Doctor Charges (₹)</label>
+          <input type="number" name="doctor_charges" placeholder="e.g., 500" required>
+        </div>
+
+        <div class="form-group">
+          <label>Nurse Charges (₹)</label>
+          <input type="number" name="nurse_charges" placeholder="e.g., 500" required>
+        </div>
+
+        <div class="form-group">
+          <label>Medicine Charges (₹)</label>
+          <input type="number" name="medicine_charges" placeholder="e.g., 800" required>
+        </div>
+
+        <div class="form-group">
+          <label>Treatment Charges (₹)</label>
+          <input type="number" name="treatment_charges" placeholder="e.g., 1200" required>
+        </div>
+
+        <div class="form-group">
+          <label>Billing Date</label>
+          <input type="text" value="<%= new Date().toISOString().split('T')[0] %>" readonly>
+        </div>
+
+        <div class="form-group full-width">
+          <button type="submit" class="btn">🧾 Generate Bill</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

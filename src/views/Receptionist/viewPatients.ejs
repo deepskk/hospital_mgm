@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>View Patients</title>
+
+  <link rel="stylesheet" href="/css/viewPatients.css">
+  <link rel="stylesheet" href="/css/receptionistDashboard.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <%- include('../partials/sidebarReceptionist') %>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-area">
+      <%- include('../partials/navbarReceptionist') %>
+
+        < class="content">
+          <div class="h">
+            <h2>All Patients Records</h2>
+          </div>
+
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Issue</th>
+                <th>Admit Date</th>
+                <th>Doctor</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% patients.forEach(function(patient) { %>
+                <tr>
+                  <td>
+                    <%= patient.patient_id %>
+                  </td>
+                  <td>
+                    <%= patient.patient_name %>
+                  </td>
+                  <td>
+                    <%= patient.patient_age %>
+                  </td>
+                  <td>
+                    <%= patient.patient_issue %>
+                  </td>
+                  <td>
+                    <%= patient.admitted_date.toISOString().split('T')[0] %>
+                  </td>
+                  <td>
+                    <%= patient.doctor_name %>
+                  </td>
+                  <td>
+                    <a href="/receptionist/edit-patient/<%= patient.patient_id %>" class="btn edit">Edit</a>
+                    <form action="/receptionist/delete-patient/<%= patient.patient_id %>" method="POST"
+                      style="display:inline;">
+                      <button type="submit" class="btn delete" onclick="return confirm('Are you sure?')">Delete</button>
+                    </form>
+                    <% if (patient.has_bill) { %>
+                      <a href="/receptionist/bill/<%= patient.patient_id %>" class="btn view-bill">📄 View Bill</a>
+                      <% } else { %>
+                        <a href="/receptionist/generate-bill/<%= patient.patient_id %>" class="btn bill">🧾 Bill</a>
+                        <% } %>
+
+                  </td>
+
+
+
+                  </td>
+                </tr>
+                <% }); %>
+            </tbody>
+          </table>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>

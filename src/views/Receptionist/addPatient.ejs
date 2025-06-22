@@ -1,0 +1,130 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Patient</title>
+  <link rel="stylesheet" href="/css/addPatient.css">
+  
+   <link rel="stylesheet" href="/css/receptionistDashboard.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+     <%- include('../partials/sidebarReceptionist') %>
+
+  <!-- 🟡 Wrap all content inside main-container -->
+<div class="main-container">
+    <%- include('../partials/navbarReceptionist') %>
+
+        <div class="container">
+            <h2>Add Patient</h2>
+            <form action="/receptionist/add-patient" method="POST">
+
+                <div class="form-group">
+                    <label for="id">Patient ID</label>
+                    <input type="text" id="id" name="id" placeholder="Enter Patient ID" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Patient Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter Patient Name" required>
+                </div>
+
+                            <div class="form-group">
+                        <label for="patient_age">Age</label>
+                        <input type="number" id="patient_age" name="patient_age" required>
+          </div>
+
+                          <div class="form-group">
+            <label for="patient_gender">Gender</label>
+            <select id="patient_gender" name="patient_gender" required>
+              <option value="">-- Select Gender --</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          
+
+                <div class="form-group">
+                    <label for="problem">Health Problem</label>
+                    <input type="text" id="problem" name="problem" placeholder="Describe Health Problem" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="admittDate">Admit Date</label>
+                    <input type="date" id="admittDate" name="admitDate" required>
+                </div>
+      
+                    
+
+                 <div class="form-group">
+                    <label for="dischargeDate">Discharge  Date</label>
+                    <input type="date" id="dischargeDate" name="dischargeDate" required>
+                </div>
+                    
+
+<!--                             
+            <div class="form-group">
+          <label for="room">Room Number</label>
+          <select id="room" name="room" required>
+            <option value="">-- Select Room --</option>
+            <% rooms.forEach(function(room) { %>
+             <option value="<%= room.room_no %>"><%= room.room_no %></option>
+            <% }); %> -->
+
+
+           <div class="form-group">
+          <label for="nurse">Nurse Name</label>
+          <select id="nurse" name="nurse" required>
+            <option value="">-- Select Nurse --</option>
+            <% nurses.forEach(function(nurse) { %>
+            <option value="<%= nurse.nurse_id %>"><%= nurse.nurse_name %></option>
+            <% }); %>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="doctor">Doctor Name</label>
+          <select id="doctor" name="doctor" required>
+            <option value="">-- Select Doctor --</option>
+            <% doctors.forEach(function(doctor) { %>
+              <option value="<%= doctor.doctor_id %>"><%= doctor.doctor_name %></option>
+            <% }); %>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select id="status" name="status" required>
+            <option value="">-- Select Status --</option>
+            <option value="Admitted">Admitted</option>
+            <option value="Discharged">Discharged</option>
+          </select>
+        </div>
+
+
+
+
+
+
+
+
+          </select>
+        </div>
+
+       
+                    </select>
+                    
+                       <!-- ✅ Clean and Centered Submit Button -->
+      <button type="submit" class="btn">Register Patient</button>
+                
+            </form>
+                </div>
+
+        </div>
+
+        </body>
+
+        </html> 

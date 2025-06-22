@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Patient Bill</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      padding: 40px;
+    }
+    .bill-box {
+      background: #fff;
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    .label {
+      font-weight: bold;
+      width: 50%;
+    }
+    .total {
+      font-weight: bold;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <div class="bill-box">
+    <h2>🧾 Patient Bill</h2>
+    <table>
+      <tr><td class="label">Patient ID:</td><td><%= bill.patient_id %></td></tr>
+      <tr><td class="label">Patient Name:</td><td><%= bill.patient_name %></td></tr>
+      <tr><td class="label">Doctor Name:</td><td><%= bill.doctor_name %></td></tr>
+      <tr><td class="label">Room Number:</td><td><%= bill.room_no || "N/A" %></td></tr>
+      <tr><td class="label">Room Charges:</td><td>₹ <%= parseFloat(bill.room_charges || 0).toFixed(2) %></td></tr>
+      <tr><td class="label">Doctor Charges:</td><td>₹ <%= parseFloat(bill.doctor_charges || 0).toFixed(2) %></td></tr>
+      <tr><td class="label">Nurse Charges:</td><td>₹ <%= parseFloat(bill.nurse_charges || 0).toFixed(2) %></td></tr>
+      <tr><td class="label">Medicine Charges:</td><td>₹ <%= parseFloat(bill.medicine_charges || 0).toFixed(2) %></td></tr>
+      <tr><td class="label">Treatment Charges:</td><td>₹ <%= parseFloat(bill.treatment_charges || 0).toFixed(2) %></td></tr>
+      <tr class="total"><td class="label">Total Amount:</td><td>₹ <%= parseFloat(bill.total_amount || 0).toFixed(2) %></td></tr>
+      <tr><td class="label">Billing Date:</td><td><%= new Date(bill.billing_date).toISOString().split("T")[0] %></td></tr>
+    </table>
+  </div>
+</body>
+</html>

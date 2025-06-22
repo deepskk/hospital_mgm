@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hospital Bill</title>
+  <link rel="stylesheet" href="/css/printBill.css">
+</head>
+<body>
+  <div class="bill-container">
+
+    <!-- Hospital Header -->
+    <div class="header">
+
+     <img src="/images/logo.png" alt="Hospital Logo" class="logo">
+
+
+      <div class="hospital-name">ABC Multispeciality Hospital</div>
+      <div class="invoice-title">Patient Billing Invoice</div>
+    </div>
+
+    <!-- Doctor & Patient Details -->
+    <div class="info-section">
+      <div class="doctor-section">
+        <h3>Doctor Details</h3>
+        <p><strong>Name:</strong> <%= bill.doctor_name %></p>
+        <p><strong>Specialization:</strong> General Physician</p> <!-- Optional -->
+      </div>
+
+      <div class="patient-section">
+        <h3>Patient Details</h3>
+        <p><strong>Patient ID:</strong> <%= bill.patient_id %></p>
+        <p><strong>Name:</strong> <%= bill.patient_name %></p>
+        <p><strong>Room No:</strong> <%= bill.room_no || 'N/A' %></p>
+        <p><strong>Admit Date:</strong> <%= bill.admitted_date?.toISOString().split('T')[0] || 'N/A' %></p>
+        <p><strong>Discharge Date:</strong> <%= bill.discharge_date?.toISOString().split('T')[0] || 'N/A' %></p>
+      </div>
+    </div>
+
+    <!-- Billing Table -->
+    <div class="billing-section">
+      <h3>Billing Breakdown</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Charge (₹)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Room Charges</td><td><%= bill.room_charges %></td></tr>
+          <tr><td>Treatment Charges</td><td><%= bill.treatment_charges %></td></tr>
+          <tr><td>Nurse Charges</td><td><%= bill.nurse_charges %></td></tr>
+          <tr><td>Medicine Charges</td><td><%= bill.medicine_charges %></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Final Charges -->
+    <div class="charges-summary">
+      <p><strong>Total Amount:</strong> ₹<%= bill.total_amount %></p>
+      <p><strong>Billing Date:</strong> <%= bill.billing_date.toISOString().split('T')[0] %></p>
+    </div>
+
+    <!-- Print Button -->
+    <div class="print-btn">
+      <button onclick="window.print()">🖨️ Print Bill</button>
+    </div>
+  </div>
+</body>
+</html>

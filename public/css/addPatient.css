@@ -1,0 +1,170 @@
+/* body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #c5f6c7;
+  margin: 0;
+  padding: 0;
+ 
+}
+.main-container {
+    margin-left: 600px;
+    transition: margin-left 0.3s ease;
+}
+
+.container {                           
+  max-width: 500px;
+  margin-left: 100px;
+  margin-top:80px;
+  padding: 70px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+
+                     
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #007b5e;
+}
+
+.form-group {
+  margin-bottom: 15px;
+   
+ 
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+input:focus,
+select:focus {
+  border-color: #007b5e;
+  outline: none;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #218838;
+} */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  /* background-color: #c5f6c7; */
+  background: rgb(34,193,195);
+background: linear-gradient(@deg,
+rgba(34,193,195,1) 0%, rgba(121,32,153,1) 86%);
+background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  display: flex;
+} 
+
+
+
+
+
+
+
+.main-container {
+  margin-left: 250px; /* Adjusted from 600px */
+  padding: 20px;
+  width: 100%;
+  transition: margin-left 0.3s ease;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  margin-top: 60px;
+  padding: 30px 40px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #007b5e;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+input:focus,
+select:focus {
+  border-color: #007b5e;
+  outline: none;
+}
+
+.btn {
+  padding: 10px 25px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  /* ✅ Center the button */
+  display: block;
+  margin: 20px auto 0 auto;
+  width: auto;
+  height: auto;
+}
+
+
+
+
+
+.btn:hover {
+  background-color: #218838;
+}

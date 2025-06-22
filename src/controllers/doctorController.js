@@ -1,22 +1,5 @@
 const db = require("../config/db");
 
-// Render the form
-// exports.renderAddDoctor = (req, res) => {
-//     res.render("addDoctor");
-// };
-// const DoctorService = require('../services/doctorService');
-
-// exports.getDoctors = (req, res) => {
-//   DoctorService.listDoctors((err, doctors) => {
-//     if (err) {
-//       return res.status(500).send('Error fetching doctor data');
-//     }
-//     res.render('viewDoctor', { doctors }); // pass doctors to EJS
-//   });
-// };
-
-
-
 // Handle doctor insertion
 exports.addDoctor = (req, res) => {
     const {

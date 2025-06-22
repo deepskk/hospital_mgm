@@ -1,19 +1,53 @@
-/* update-doctor.css - Modern, Responsive Design for Add Doctor Form */
+/* Reset */
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Removed body styles to prevent conflict with adminDashboard.css */
-body{
+/* Layout Containers */
+body {
   background-color: #b7edb7;
+  font-family: Arial, sans-serif;
 }
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: #d5f0d5;
+  padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #fff;
+  padding: 15px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+/* Main content */
+.main-container {
+  flex: 1;
+  padding: 20px;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .form-container {
   background-color: #ffffff;
   width: 100%;
   max-width: 550px;
-  margin-left: 300px;
-  margin-top: 50px; /* center horizontally and margin top */
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
@@ -26,22 +60,19 @@ body{
   margin-bottom: 30px;
 }
 
-.form-container form {
-  display: flex;
-  flex-direction: column;
+.form-group {
+  margin-bottom: 20px;
 }
 
 .form-container input[type="text"],
 .form-container input[type="number"],
+.form-container input[type="date"],
 .form-container select {
   padding: 14px 16px;
-  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
-  transition: border-color 0.3s ease;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .form-container input:focus,
@@ -51,12 +82,14 @@ body{
   box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
 }
 
-.form-container select {
-  background-color: #fff;
+.form-container label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
   color: #333;
 }
 
-.form-container button {
+.btn {
   padding: 14px;
   background-color: #2e8b57;
   color: white;
@@ -65,24 +98,31 @@ body{
   font-size: 17px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
 }
 
-.form-container button:hover {
-  background-color: #2e8b57;
+.btn:hover {
+  background-color: #267148;
   transform: scale(1.02);
 }
 
-.form-container label {
-  display: block;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #333;
-}
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
 
-@media screen and (max-width: 600px) {
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .navbar {
+    font-size: 16px;
+  }
+
   .form-container {
-    padding: 20px;
-    margin: 10px auto;
+    margin-top: 10px;
+    width: 90%;
   }
 }
