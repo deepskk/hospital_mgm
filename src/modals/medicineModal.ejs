@@ -1,0 +1,41 @@
+<div id="medicineModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3>Prescribe Medicine</h3>
+
+    <form id="medicineForm">
+      <input type="hidden" name="patient_id" id="patientId" />
+
+      <input
+        type="text"
+        name="medicine_name"
+        placeholder="Medicine Name"
+        required
+      />
+      <input
+        type="number"
+        step="0.01"
+        name="price_medicine"
+        placeholder="Price"
+        required
+      />
+
+      <button type="submit">Add Medicine</button>
+    </form>
+    <br>
+    <hr />
+    <h4>Added Medicines</h4>
+    <table class="medicine-table">
+      <thead>
+        <tr>
+          <th>Medicine</th>
+          <th>Price (₹)</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="medicineList">
+        <!-- Rows will be added dynamically -->
+      </tbody>
+    </table>
+  </div>
+</div>

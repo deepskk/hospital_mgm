@@ -3,23 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Admin</title>
-  <link rel="stylesheet" href="/css/adminDashboard.css">
+  <link rel="stylesheet" href="/css/adminDashboard.css"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
-  <!-- Toggle Button (visible on mobile) -->
-  <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-
   <!-- Include Sidebar -->
   <%- include('../partials/sidebar') %>
-
   <!-- Main Container -->
   <div class="main-container">
-
-    <!-- Include Navbar -->
-    <%- include('../partials/navbar') %>
-
+    <%- include('../partials/navbarDoctor') %>
     <!-- Your main dashboard content goes here -->
     <section class="dashboard">
       <h1>Welcome, Admin!</h1>
@@ -48,6 +40,5 @@
       </div>
     </footer>
   </div>
-
 </body>
 </html>

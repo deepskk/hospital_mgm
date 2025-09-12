@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Patients</title>
+  <link rel="stylesheet" href="/css/viewRooms.css" />
+  <link rel="stylesheet" href="/css/receptionistDashboard.css" />
+  <link rel="stylesheet" href="/css/medicineModal.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+  <!-- Sidebar -->
+  <%- include("../partials/sidebarDoctor") %>
+
+  <!-- Main Container -->
+  <div class="main-container" id="mainContainer">
+    <!-- Navbar -->
+    <%- include("../partials/navbarDoctor", { username: username }) %>
+
+    <!-- Page Content -->
+    <div class="main-content" style="padding-top: 80px;">
+      <h2>My Patients</h2>
+
+      <% if (patients.length === 0) { %>
+        <p>No patients assigned to you.</p>
+      <% } else { %>
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Contact</th>
+              <th>Issue</th>
+              <th>Admitted Date</th>
+              <th>Discharge Date</th>
+              <th>Status</th>
+              <th>Add</th>
+              <th>Check</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% patients.forEach(patient => { %>
+              <tr>
+                <td><%= patient.patient_name %></td>
+                <td><%= patient.patient_age %></td>
+                <td><%= patient.patient_gender %></td>
+                <td><%= patient.patient_contact %></td>
+                <td><%= patient.patient_issue %></td>
+                <td><%= patient.admitted_date ? patient.admitted_date.toISOString().split('T')[0] : 'N/A' %></td>
+                <td><%= patient.discharge_date ? patient.discharge_date.toISOString().split('T')[0] : 'N/A' %></td>
+                <td><%= patient.status %></td>
+                <td class="centered">
+                  <button 
+                    class="action-btn add-btn <%= patient.medicine_count > 0 ? 'active' : '' %>" 
+                    data-patient-id="<%= patient.patient_id %>">
+                    <%= patient.medicine_count > 0 ? "✅" : "➕" %>
+                  </button>
+                </td>
+                <td class="centered">
+                  <button 
+                    class="action-btn check-btn <%= patient.medicine_count > 0 ? 'checked' : '' %>" 
+                    data-patient-id="<%= patient.patient_id %>" 
+                    <%= patient.medicine_count > 0 ? '' : 'disabled' %>>
+                    <%= patient.medicine_count > 0 ? "✅" : "✔️" %>
+                  </button>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      <% } %>
+    </div>
+  </div>
+
+  <!-- Medicine Modal -->
+  <%- include("../../modals/medicineModal") %>
+  <script src="/js/doctorPatient.js"></script>
+</body>
+</html>

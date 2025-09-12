@@ -1,28 +1,12 @@
-<!-- Navbar Partial -->
 <nav class="navbar">
   <div class="navbar-left">
-    <button onclick="toggleSidebar()">☰</button>
+    <!-- Toggle Button -->
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
     <span>Hospital Management System</span>
   </div>
 
   <div class="navbar-right">
-    <span style="margin-right: 15px;">Receptionist</span>
+    <span>Welcome, <%= username %></span>
     <a href="/logout" class="logout-btn">Logout</a>
   </div>
 </nav>
-
-<script>
-  function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    const mainContainer = document.querySelector(".main-container");
-
-    sidebar.classList.toggle("hidden");
-
-    if (sidebar.classList.contains("hidden")) {
-      mainContainer.style.marginLeft = "0";
-    } else {
-      mainContainer.style.marginLeft = "240px";
-    }
-  }
-</script>
-

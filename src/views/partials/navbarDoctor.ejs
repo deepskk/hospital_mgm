@@ -1,0 +1,32 @@
+<nav class="navbar">
+  <div class="navbar-left">
+    <!-- ☰ Toggle Button -->
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    <span>Hospital Management System</span>
+  </div>
+
+  <div class="navbar-right">
+    <span>Welcome, <%= username %></span>
+    <a href="/logout" class="logout-btn">Logout</a>
+  </div>
+</nav>
+
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    const mainContainer = document.querySelector(".main-container");
+    const navbar = document.querySelector(".navbar");
+
+    sidebar.classList.toggle("hidden");
+
+    if (sidebar.classList.contains("hidden")) {
+      mainContainer.style.marginLeft = "0";
+      navbar.style.left = "0";
+      navbar.style.width = "100%";
+    } else {
+      mainContainer.style.marginLeft = "240px";
+      navbar.style.left = "240px";
+      navbar.style.width = "calc(100% - 240px)";
+    }
+  }
+</script>
