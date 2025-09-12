@@ -5,11 +5,12 @@
   
   <link rel="stylesheet" href="/css/addDoctor.css">
   <link rel="stylesheet" href="/css/adminDashboard.css">
+  <link rel="stylesheet" href="css/receptionistDashboard.css">
 </head>
 <body>
   <%- include('partials/sidebar') %>
-
   <div class="main-container">
+      <%- include('partials/navbarDoctor') %>
     <div class="form-container">
       <h2>Add Doctor</h2>
       <form action="/admin/add-doctor" method="POST">

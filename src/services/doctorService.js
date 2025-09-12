@@ -66,4 +66,23 @@ exports.deleteDoctorById = async (id) => {
   });
 
 };
+exports.getPatientsByDoctorId = async (doctorId) => {
+  try {
+    const [rows] = await db.promise().query(
+      `
+      SELECT 
+        p.*,
+        COUNT(m.medical_id) AS medicine_count
+      FROM patient p
+      LEFT JOIN medical m ON p.patient_id = m.patient_id
+      WHERE p.doctor_id = ?
+      GROUP BY p.patient_id
+      `,
+      [doctorId]
+    );
+    return rows;
+  } catch (error) {
+    throw error;
+  }
+};
 

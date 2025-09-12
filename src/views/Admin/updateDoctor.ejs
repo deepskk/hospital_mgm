@@ -101,10 +101,10 @@ body{
   <!-- Include Sidebar -->
   <%- include('../partials/sidebar') %>
   <!-- Include Navbar -->
-  <%- include('../partials/navbar') %>
 
   <!-- 🔥 Add wrapper div with class="form-container" -->
   <div class="form-container-update-doctor">
+     <%- include('../partials/navbar') %>
     <h2>Update Doctor</h2>
     <form action="/admin/update-doctor/<%= doctor.doctor_id %>" method="POST">
 

@@ -1,28 +1,31 @@
+// adminRouter.js
 const express = require("express");
 const router = express.Router();
-
 const adminController = require("../controllers/adminController");
-// const isAdminAuthenticated = require("../middlewares/adminAuth");
+const doctorController = require("../controllers/doctorController");
+const { ensureLoggedIn } = require("../middleware/sessionCheck");
 
-// All routes here
-router.get("/view-doctors", adminController.viewDoctorsPage);
-router.get("/update-doctor/:id", adminController.showUpdateDoctorForm);
-router.post("/update-doctor/:id", adminController.updateDoctor);
-router.get("/delete-doctor/:id", adminController.deleteDoctor);
+// ✅ Admin Dashboard
+router.get("/dashboard", ensureLoggedIn("admin"), (req, res) => {
+  res.render("Admin/adminDashboard", {
+    username: req.session.username,
+  });
+});
 
-// Add Receptionist
-router.get('/add-receptionist', adminController.renderAddReceptionistForm);
-router.post('/add-receptionist', adminController.addReceptionist);
-// View Receptionist
-router.get('/view-receptionist', adminController.viewReceptionists);
-//Delete receptionist
-router.get('/delete-receptionist/:id',adminController.deleteReceptionist);
-// Update receptionist
-router.get('/update-receptionist/:id', adminController.showUpdateReceptionistForm);
-router.post('/update-receptionist/:id', adminController.updateReceptionist);
+// ✅ Doctor Management
+router.get("/view-doctors", ensureLoggedIn("admin"), adminController.viewDoctorsPage);
+router.get("/update-doctor/:id", ensureLoggedIn("admin"), adminController.showUpdateDoctorForm);
+router.post("/update-doctor/:id", ensureLoggedIn("admin"), adminController.updateDoctor);
+router.get("/delete-doctor/:id", ensureLoggedIn("admin"), adminController.deleteDoctor);
+router.get("/add-doctor", ensureLoggedIn("admin"), doctorController.renderAddDoctorForm);
+router.post("/add-doctor", ensureLoggedIn("admin"), doctorController.addDoctor);
 
+// ✅ Receptionist Management
+router.get("/add-receptionist", ensureLoggedIn("admin"), adminController.renderAddReceptionistForm);
+router.post("/add-receptionist", ensureLoggedIn("admin"), adminController.addReceptionist);
+router.get("/view-receptionist", ensureLoggedIn("admin"), adminController.viewReceptionists);
+router.get("/delete-receptionist/:id", ensureLoggedIn("admin"), adminController.deleteReceptionist);
+router.get("/update-receptionist/:id", ensureLoggedIn("admin"), adminController.showUpdateReceptionistForm);
+router.post("/update-receptionist/:id", ensureLoggedIn("admin"), adminController.updateReceptionist);
 
-
-
-// Export the router
 module.exports = router;

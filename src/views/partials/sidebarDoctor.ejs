@@ -1,0 +1,24 @@
+<aside class="sidebar" id="sidebar">
+  <h2 style="color: black; text-align: left;">Doctor Panel</h2>
+  <ul>
+    <li><a href="/doctor/dashboard">🏠 Dashboard</a></li>
+
+    <!-- Patient Menu -->
+    <li class="doctor-menu">
+      <a href="javascript:void(0)" onclick="toggleSubMenu('patientSubMenu')">🧑‍🤝‍🧑 Patients ⯆</a>
+      <ul class="submenu" id="patientSubMenu" style="display: none;">
+        <li><a href="/doctor/view-patients">👁 View Patients</a></li>
+        <!-- Add more patient-related links here if needed -->
+      </ul>
+    </li>
+
+    <li class="logout"><a href="/logout">🚪 Logout</a></li>
+  </ul>
+</aside>
+
+<script>
+  function toggleSubMenu(id) {
+    const menu = document.getElementById(id);
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+  }
+</script>
