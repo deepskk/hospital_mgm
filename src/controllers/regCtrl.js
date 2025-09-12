@@ -15,6 +15,7 @@ exports.regCtrlLogin = (req, res) => {
 // Sign In Logic
 exports.SignIn = async (req, res) => {
   const { username, password, role } = req.body;
+  console.log(`${username}  ${password} ${role}`);
 
   // Static Admin Login
   if (role === "admin") {
